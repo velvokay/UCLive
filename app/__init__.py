@@ -10,7 +10,7 @@ app.config.from_object('config')
 db = SQLAlchemy(app)
 auth = Blueprint('auth', __name__)
 
-def create_app(config_name):
+
 
 from app import views, models
 from . import views
