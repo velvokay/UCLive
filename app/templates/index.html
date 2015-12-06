@@ -24,14 +24,13 @@
             {% else %}
             <p>Happy to see you again!</p>
             {% endif %}
-            {% for post in posts %}
-            <div>
-                <p>{{ post.author.nickname }} says: <b>{{ post.body }}</b></p>
-            </div>
-            {% endfor %}
         </div>
-
-
+        <h3>Posts: </h3>
+        {% for post in posts %}
+        <strong>Title: </strong> {{ post.title }} <br>
+        <strong>Post: </strong> {{ post.description }} <br>
+        <br>
+        {% endfor %}
         <p class="lead"></p>
     </div>
     <footer class="footer">
