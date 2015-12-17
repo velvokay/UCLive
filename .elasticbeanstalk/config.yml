@@ -1,0 +1,10 @@
+branch-defaults:
+  streamline_a:
+    environment: null
+    group_suffix: null
+global:
+  application_name: uclive
+  default_platform: Python 2.7
+  default_region: us-west-2
+  profile: eb-cli
+  sc: git

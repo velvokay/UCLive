@@ -1,14 +1,22 @@
-from flask import Flask, render_template, redirect, url_for, json, request, session, flash, g
+from flask import Flask, render_template, redirect, url_for, json, request, session, flash
 from werkzeug import generate_password_hash, check_password_hash
 from functools import wraps
-import sqlite3
+#import sqlite3
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask_s3 import FlaskS3
 
 #app object
 app = Flask(__name__)
+app.config['FLASKS3_BUCKET_NAME'] = 'ayakov.com'
+s3 = FlaskS3(app)
 
 app.secret_key = "alpine"
-app.database = "main.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
+
+#create sqlalchemy object
+db = SQLAlchemy(app)
+
+from models import *
 
 # login requied decorator
 def login_required(f):
@@ -24,10 +32,7 @@ def login_required(f):
 
 @app.route("/")
 def main():
-	g.db = connect_db()
-	cur = g.db.execute('select * from posts')
-	posts = [dict(title=row[0], description=row[1]) for row in cur.fetchall()]
-	g.db.close()
+	posts = db.session.query(BlogPost).all()
 	return render_template('index.html', posts=posts)
 
 @app.route('/dashBoard')
@@ -81,8 +86,8 @@ def logout():
 	flash('Successfully logged out.')
 	return redirect(url_for('main'))
 	
-def connect_db():
-	return sqlite3.connect(app.database)
+#def connect_db():
+#	return sqlite3.connect(app.database)
 
 if __name__ == "__main__":
 	app.debug = True
