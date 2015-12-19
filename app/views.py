@@ -3,10 +3,10 @@ from werkzeug import generate_password_hash, check_password_hash
 from functools import wraps
 #import sqlite3
 
-from app import app, db
+from app import application, db
 from .models import BlogPost
 
-# login requied decorator
+# login required decorator
 def login_required(f):
 		@wraps(f)
 		def wrap(*args, **kwargs):
@@ -18,21 +18,21 @@ def login_required(f):
 		return wrap
 			
 
-@app.route("/")
+@application.route("/")
 def main():
 	posts = db.session.query(BlogPost).all()
 	return render_template('index.html', posts=posts)
 
-@app.route('/dashBoard')
+@application.route('/dashBoard')
 @login_required
 def dashBoard():
 	return render_template('dashboard.html')
 
-@app.route("/displaySignUp")
+@application.route("/displaySignUp")
 def displaySignUp():
 	return render_template("signup.html")
 
-@app.route('/signUp',methods=['POST'])
+@application.route('/signUp',methods=['POST'])
 def signUp():
 	#reads posted values from the form
 	_name = request.form['inputName']
@@ -56,7 +56,7 @@ def signUp():
 	else:
 		return json.dumps({'html':'<span>Please enter the required fields.</span>'})
 	
-@app.route('/login', methods=['GET', 'POST'])
+@application.route('/login', methods=['GET', 'POST'])
 def login():
 	error = None
 	if request.method == 'POST':
@@ -68,7 +68,7 @@ def login():
 			return redirect(url_for('main'))
 	return render_template('login.html', error=error)
 	
-@app.route('/logout')
+@application.route('/logout')
 def logout():
 	session.pop('logged_in', None)
 	flash('Successfully logged out.')
@@ -76,4 +76,3 @@ def logout():
 	
 #def connect_db():
 #	return sqlite3.connect(app.database)
-

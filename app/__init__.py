@@ -1,18 +1,20 @@
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask_s3 import FlaskS3
+from config import basedir
 
-#app object
-app = Flask(__name__)
+#application object
+application = Flask(__name__)
+application.config.from_object('config')
 
-app.config['FLASKS3_BUCKET_NAME'] = 'ayakov.com'
-s3 = FlaskS3(app)
+application.config['FLASKS3_BUCKET_NAME'] = 'ayakov.com'
+s3 = FlaskS3(application)
 
-app.secret_key = "alpine"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
+application.secret_key = "alpine"
+application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
 
 #create sqlalchemy object
-db = SQLAlchemy(app)
+db = SQLAlchemy(application)
 
 from app import views, models
 
