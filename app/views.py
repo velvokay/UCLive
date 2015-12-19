@@ -2,21 +2,9 @@ from flask import Flask, render_template, redirect, url_for, json, request, sess
 from werkzeug import generate_password_hash, check_password_hash
 from functools import wraps
 #import sqlite3
-from flask.ext.sqlalchemy import SQLAlchemy
-from flask_s3 import FlaskS3
 
-#app object
-app = Flask(__name__)
-app.config['FLASKS3_BUCKET_NAME'] = 'ayakov.com'
-s3 = FlaskS3(app)
-
-app.secret_key = "alpine"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
-
-#create sqlalchemy object
-db = SQLAlchemy(app)
-
-from models import *
+from app import app, db
+from .models import BlogPost
 
 # login requied decorator
 def login_required(f):
@@ -89,6 +77,3 @@ def logout():
 #def connect_db():
 #	return sqlite3.connect(app.database)
 
-if __name__ == "__main__":
-	app.debug = True
-	app.run()
