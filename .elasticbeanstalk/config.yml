@@ -1,6 +1,6 @@
 branch-defaults:
   master:
-    environment: null
+    environment: uclive-dev
 global:
   application_name: uclive
   default_ec2_keyname: null
