@@ -11,7 +11,9 @@ application.config['FLASKS3_BUCKET_NAME'] = 'ayakov.com'
 s3 = FlaskS3(application)
 
 application.secret_key = "alpine"
-application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
+
+#application.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://uclivedb:alpine88@uclivedb.cop2gfgdnffu.us-west-1.rds.amazonaws.com:5432'
+application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db' #local db is here
 
 #create sqlalchemy object
 db = SQLAlchemy(application)

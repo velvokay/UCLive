@@ -6,8 +6,8 @@ from app.models import BlogPost
 db.create_all()
 
 #insert
-db.session.add(BlogPost("Very good", "I\'m very good."))
-db.session.add(BlogPost("Very well", "I\'m very well."))
+db.session.add(BlogPost("One", "Connection established."))
+db.session.add(BlogPost("Two", "Hello internet!"))
 
 #commit changes
 db.session.commit()
