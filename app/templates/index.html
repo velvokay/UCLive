@@ -3,11 +3,7 @@
 <head onload="checkInfo()">
     <style>
         body {
-            background-image: url("static/background.jpg");
-            background-repeat: no-repeat;
-
-            -ms-filter: blur(5px);
-            filter: blur(5px);
+            background-image: url("static/background.png");
         }
     </style>
     <meta charset="utf-8">
@@ -16,11 +12,11 @@
 <body>
     {% extends "base.html" %}
     {% block content %}
-    <div class="container" style="text-align:left; font-family: 'Open Sans', sans-serif; color:white;">
-        <div class="page-header">
+    <div class="container" style="text-align:left; font-family: 'Open Sans', sans-serif; color:black;">
+        <div class="page-header" style="color:black">
             <h1>Hello, {% if name %}{{ name }}{% else %}User{% endif %}!</h1>
             {% if not known %}
-            <p>Please to meet you!</p>
+            <p>Pleased to meet you!</p>
             {% else %}
             <p>Happy to see you again!</p>
             {% endif %}
