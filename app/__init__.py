@@ -1,5 +1,6 @@
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
+from sqlalchemy import create_engine
 from flask_s3 import FlaskS3
 from config import basedir
 
@@ -14,6 +15,7 @@ application.secret_key = "alpine"
 
 #application.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://uclivedb:alpine88@uclivedb.cop2gfgdnffu.us-west-1.rds.amazonaws.com:5432'
 application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db' #local db is here
+#engine = create_engine('postgresql+psycopg2://uclivedbent:alpine88@uclivedb.cop2gfgdnffu.us-west-1.rds.amazonaws.com:5432/posts')
 
 #create sqlalchemy object
 db = SQLAlchemy(application)
