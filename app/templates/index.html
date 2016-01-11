@@ -21,14 +21,26 @@
             <p>Happy to see you again!</p>
             {% endif %}
         </div>
-        <h3>Posts: </h3>
+        <!--<h3>Posts: </h3>
         {% for post in posts %}
         <strong>Title: </strong> {{ post.title }} <br>
         <strong>Post: </strong> {{ post.description }} <br>
         <br>
-        {% endfor %}
+        {% endfor %}-->
+            <h3>Begin by selecting your major: </h3>
+            <form action="{{ url_for('main') }}" method="post">
+                <select name="major" id="major">
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Electrical Engineering">Electrical Engineering</option>
+                </select>
+                <br><br>
+                <input class="btn btn-default" type="submit" value="Submit">
+            </form>
+        {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}</p>
+        {% endif %}
+        </div>
         <p class="lead"></p>
-    </div>
     <footer class="footer">
         <div class="container" style="text-align: center">
             <p class="text-muted">alexakovlev@gmail.com | 2015</p>

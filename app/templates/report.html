@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head onload="checkInfo()">
+    <style>
+        body {
+            background-image: url("static/background.png");
+        }
+    </style>
+    <meta charset="utf-8">
+</head>
+{% extends "base.html" %}
+{% block content%}
+
+<body>
+
+<div class="container" style="background-color: white">
+    <div class="page-header">
+        <h1>{{ _major }}</h1>
+    </div>
+    <h2>Required Classes</h2>
+    <!--.active, .success, .info, .warning, and .danger.-->
+    <table class="table">
+        <a href="#" class="btn btn-default" role="button">Major Specific</a>
+        <a href="#" class="btn btn-default" role="button">General Education</a>
+        <thead>
+            <tr>
+                <th class="info">Courses: </th>
+                {% for col_index in range(cols['campuses']|count) %}
+                <th class="warning">{{ cols['campuses'][col_index] }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for row_index in range(rows['courses']|count) %}
+        <tr>
+            <td class="info">{{ rows['courses'][row_index] }}</td>
+            <td>{{ rows['ucb'][row_index] }}</td>
+            <td>{{ rows['ucsd'][row_index] }}</td>
+            <td>{{ rows['ucla'][row_index] }}</td>
+            <td>{{ rows['ucsb'][row_index] }}</td>
+            <td>{{ rows['uci'][row_index] }}</td>
+            <td>{{ rows['ucd'][row_index] }}</td>
+            <td>{{ rows['ucsc'][row_index] }}</td>
+            <td>{{ rows['ucr'][row_index] }}</td>
+            <td>{{ rows['ucm'][row_index] }}</td>
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+    <a href="#" class="btn btn-default btn-lg btn-success" role="button">Save as .xlsx (Excel)</a>
+    <a href="#" class="btn btn-default btn-lg btn-success" role="button">Save as .csv</a>
+</div>
+
+</body>
+
+{% endblock %}
