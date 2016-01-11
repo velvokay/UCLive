@@ -16,6 +16,7 @@ Flask-OpenID==1.2.5
 Flask-S3==0.2.8
 Flask-Script==2.0.5
 Flask-SQLAlchemy==2.1
+Flask-Table==0.2.9
 Flask-WhooshAlchemy==0.56
 Flask-WTF==0.12
 flipflop==1.0
