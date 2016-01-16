@@ -34,22 +34,21 @@
         {% for row_index in range(rows['courses']|count) %}
         <tr>
             <td class="info">{{ rows['courses'][row_index] }}</td>
-            <td>{{ rows['ucb'][row_index] }}</td>
-            <td>{{ rows['ucsd'][row_index] }}</td>
-            <td>{{ rows['ucla'][row_index] }}</td>
-            <td>{{ rows['ucsb'][row_index] }}</td>
-            <td>{{ rows['uci'][row_index] }}</td>
-            <td>{{ rows['ucd'][row_index] }}</td>
-            <td>{{ rows['ucsc'][row_index] }}</td>
-            <td>{{ rows['ucr'][row_index] }}</td>
-            <td>{{ rows['ucm'][row_index] }}</td>
+            <td>{{ rows['UCB'][row_index] }}</td>
+            <td>{{ rows['UCSD'][row_index] }}</td>
+            <td>{{ rows['UCLA'][row_index] }}</td>
+            <td>{{ rows['UCSB'][row_index] }}</td>
+            <td>{{ rows['UCI'][row_index] }}</td>
+            <td>{{ rows['UCD'][row_index] }}</td>
+            <td>{{ rows['UCSC'][row_index] }}</td>
+            <td>{{ rows['UCR'][row_index] }}</td>
+            <td>{{ rows['UCM'][row_index] }}</td>
         </tr>
         {% endfor %}
 
         </tbody>
     </table>
-    <a href="#" class="btn btn-default btn-lg btn-success" role="button">Save as .xlsx (Excel)</a>
-    <a href="#" class="btn btn-default btn-lg btn-success" role="button">Save as .csv</a>
+    <a href="/getCsv" class="btn btn-default btn-lg btn-success" role="button">Save as .csv</a>
 </div>
 
 </body>

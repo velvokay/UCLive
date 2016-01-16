@@ -1,0 +1,14 @@
+Courses:,UCB,UCSD,UCLA,UCSB,UCI,UCD,UCSC,UCR,UCM
+Calculus 1,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes
+Calculus 2,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes
+Calculus 3,Yes,Yes,Yes,Yes,No,Yes,Yes,Yes,Yes
+Differential Equations,Yes,No,Yes,Yes,No,Yes,Yes,Yes,Yes
+Linear Algebra,Yes,Yes,Yes,Yes,No,Yes,Yes,Yes,Yes
+Discrete Math,Yes,Yes,Yes,Yes,No,Yes,Yes,Yes,Yes
+Classical Mech.,Yes,Yes,Yes,Yes,No,Yes,Yes,Yes,Yes
+"Waves, Optics, Thermo.",Yes,Yes,Yes,Yes,No,Yes,Yes,Yes,Yes
+Elec. & Mag.,Yes,Yes,Yes,Yes,No,Yes,Yes,Yes,Yes
+Modern Physics,Yes,Yes,Yes,Yes,No,Yes,Yes,Yes,Yes
+Intro to CS,Yes,Yes,Yes,Yes,Choose CS,Yes,Yes,Yes,Yes
+Data Structs/Alg.,Yes,Yes,Yes,Yes,Choose CS,Yes,Yes,Yes,Yes
+Intro Java,Yes,Yes,Yes,Yes,Choose CS,Yes,Yes,Yes,Yes

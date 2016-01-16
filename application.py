@@ -1,4 +1,5 @@
 from app import application
 if __name__ == "__main__":
-	application.debug = True
+	###### MAKE FALSE BEFORE DEPLOYING!!!!######
+	application.debug = False
 	application.run()
