@@ -9,43 +9,40 @@
     <meta charset="utf-8">
 
 </head>
+{% extends "base.html" %}
+{% block content %}
 <body>
-    {% extends "base.html" %}
-    {% block content %}
-    <div class="container" style="text-align:left; font-family: 'Open Sans', sans-serif; color:black;">
-        <div class="page-header" style="color:black">
-            <h1>Hello, {% if name %}{{ name }}{% else %}User{% endif %}!</h1>
-            {% if not known %}
-            <p>Pleased to meet you!</p>
-            {% else %}
-            <p>Happy to see you again!</p>
-            {% endif %}
-        </div>
-        <!--<h3>Posts: </h3>
-        {% for post in posts %}
-        <strong>Title: </strong> {{ post.title }} <br>
-        <strong>Post: </strong> {{ post.description }} <br>
+    <div class="container" style="font-family: 'Open Sans', sans-serif; text-align: center">
+        <h1 style="color: dodgerblue">Find out which classes you need.</h1>
         <br>
-        {% endfor %}-->
-            <h3>Begin by selecting your major: </h3>
-            <form action="{{ url_for('main') }}" method="post">
-                <select name="major" id="major">
-                    <option value="Computer Science">Computer Science</option>
-                    <option value="Electrical Engineering">Electrical Engineering</option>
-                </select>
-                <br><br>
-                <input class="btn btn-default" type="submit" value="Submit">
-            </form>
-        {% if error %}
-        <p class="error"><strong>Error:</strong> {{ error }}</p>
-        {% endif %}
+        <div class="panel panel-default" style="background-color: white">
+            <!--<div class="panel-heading">
+                <h1>Hello, {% if name %}{{ name }}{% else %}User{% endif %}!</h1>
+            </div>-->
+            <div class="panel-body">
+            <!--<h3>Posts: </h3>
+            {% for post in posts %}
+            <strong>Title: </strong> {{ post.title }} <br>
+            <strong>Post: </strong> {{ post.description }} <br>
+            <br>
+            {% endfor %}-->
+                <h3>Begin by selecting your major: </h3>
+                <form action="{{ url_for('main') }}" method="post">
+                    <select name="major" id="major">
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                    </select>
+                    <br><br>
+                    <input class="btn btn-default" type="submit" value="Submit">
+                </form>
+            </div>
         </div>
-        <p class="lead"></p>
+    </div>
     <footer class="footer">
         <div class="container" style="text-align: center">
             <p class="text-muted">alexakovlev@gmail.com | 2015</p>
         </div>
     </footer>
-    {% endblock %}
 </body>
+{% endblock %}
 </html>

@@ -85,10 +85,19 @@ def logout():
 @application.route('/report')
 def report():
 	#main report page
-	
-	cols = {'campuses':['UCB', 'UCSD', 'UCLA', 'UCSB', 'UCI', 'UCD', 'UCSC', 'UCR', 'UCM']}
-	rows = {'courses':['Calculus 1', 'Calculus 2', 'Calculus 3', 'Differential Equations', 'Linear Algebra', 'Discrete Math', 'Classical Mech.', 'Waves, Optics, Thermo.', 'Elec. & Mag.', 'Modern Physics', 'Intro to CS', 'Data Structs/Alg.', 'Intro Java'],
-			'UCB':['Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes'],
+	csCourses = {'courses':['Calculus 1', 'Calculus 2', 'Calculus 3', 'Differential Equations', 'Linear Algebra', 'Discrete Math', 'Classical Mech.', 'Waves, Optics, Thermo.', 'Elec. & Mag.', 'Modern Physics', 'Intro to CS', 'Data Structs/Alg.', 'Intro Java'],
+			'UCB':['Yes', 'Yes', 'No', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No'],
+			'UCSD':['Yes', 'Yes', 'Yes', 'No', 'Yes', 'Yes', 'At least 2 Phys./Chem.', 'At least 2 Phys./Chem.', 'At least 2 Phys./Chem.', 'At least 2 Phys./Chem.', 'At least 1 CS', 'No', 'At least 1 CS'],
+			'UCLA':['Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'No', 'No'],
+			'UCSB':['Yes', 'Yes', 'No', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'No', 'Yes', 'Yes', 'No'],
+			'UCI':['Yes', 'Yes', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'At least 2 CS', 'At least 2 CS', 'At least 2 CS'],
+			'UCD':['Yes', 'Yes', 'Yes', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No'],
+			'UCSC':['Yes', 'Yes', 'No', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No'],
+			'UCR':['Yes', 'Yes', 'At least 3', 'No', 'No', 'At least 3', 'Yes', 'At least 3', 'At least 3', 'No', 'Yes', 'Yes', 'Yes'],
+			'UCM':['IGETC', 'IGETC', 'IGETC', 'IGETC', 'IGETC', 'IGETC', 'IGETC', 'IGETC', 'IGETC', 'IGETC', 'IGETC', 'IGETC', 'IGETC']}
+			
+	eeCourses = {'courses':['Calculus 1', 'Calculus 2', 'Calculus 3', 'Differential Equations', 'Linear Algebra', 'Discrete Math', 'Classical Mech.', 'Waves, Optics, Thermo.', 'Elec. & Mag.', 'Modern Physics', 'Intro to CS', 'Data Structs/Alg.', 'Intro Java'],
+			'UCB':['EE', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes'],
 			'UCSD':['Yes', 'Yes', 'Yes', 'No', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes'],
 			'UCLA':['Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes'],
 			'UCSB':['Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes'],
@@ -97,9 +106,15 @@ def report():
 			'UCSC':['Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes'],
 			'UCR':['Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes'],
 			'UCM':['Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes']}
-			
+	
 	_major = main.major
 	
+	cols = {'campuses':['UCB', 'UCSD', 'UCLA', 'UCSB', 'UCI', 'UCD', 'UCSC', 'UCR', 'UCM']}
+	if _major == "Computer Science":
+		rows = csCourses
+	elif _major == "Electrical Engineering":
+		rows = eeCourses
+
 	#download as csv button
 	
 	subdirectory = "app/static/serve"
@@ -139,7 +154,7 @@ def report():
 			str(Campuses(7).name): rows[str(Campuses(7).name)][count],
 			str(Campuses(8).name): rows[str(Campuses(8).name)][count]
 			})
-			count = count + 1
+			count+=1
 			
 	return render_template('report.html', _major=_major, table=table, cols=cols, rows=rows)
 	

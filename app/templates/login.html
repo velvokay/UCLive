@@ -11,20 +11,27 @@
 </head>
 {% extends "base.html" %}
 {% block content%}
-
-    <div class="container">
-        <h1>Login</h1>
-        <br>
-        <form action="" method="post">
-            <input type="text" placeholder="Username" name="username" value="{{
-                request.form.username }}">
-            <input type="password" placeholder="Password" name="password" value="{{
-                request.form.password }}">
-            <input class="btn btn-default" type="submit" value="Login">
-        </form>
+<div class="container" style="text-align: center">
+    <div class="panel panel-default">
+        <div class="panel-heading">Login:</div>
+        <div class="panel-body">
+            <form action="" method="post">
+                <input type="text" placeholder="Username" name="username" value="{{
+                    request.form.username }}">
+                <input type="password" placeholder="Password" name="password" value="{{
+                    request.form.password }}">
+                <input class="btn btn-default" type="submit" value="Login">
+            </form>
+        </div>
         {% if error %}
             <p class="error"><strong>Error:</strong> {{ error }}</p>
         {% endif %}
     </div>
+</div>
+    <footer class="footer">
+        <div class="container" style="text-align: center">
+            <p class="text-muted">alexakovlev@gmail.com | 2015</p>
+        </div>
+    </footer>
 
 {% endblock %}

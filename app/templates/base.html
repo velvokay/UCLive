@@ -18,10 +18,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="static/sticky-footer-navbar.css" rel="stylesheet">
     <link href="static/signup.css" rel="stylesheet">
+    <link href="static/centered_navbar.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="static/flexslider.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <script src="static/jquery.flexslider.js"></script>
     <script src="static/Modernizr.js"></script>
     <script src="static/js/jquery-1.11.3.js"></script>
     <script src="static/js/signUp.js"></script>
@@ -35,24 +34,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">UCLive</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Projects <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Tracker</a></li>
-                        <li><a href="#">Algorithm</a></li>
-                        <li><a href="#">About</a></li>
-                    </ul>
-                </li>
+                <li><a href="/">UCLive</a></li>
                 <li><a href="http://www.github.com/velvokay/uclive">Github</a></li>
-                <li><a href="#">Devpost</a></li>
-
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
                 {% if session['logged_in'] %}
                 <li><a href="/logout">Logout</a></li>
                 <li><a href="/dashBoard">Dashboard</a></li>

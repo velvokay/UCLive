@@ -24,7 +24,6 @@
         <a href="#" class="btn btn-default" role="button">General Education</a>
         <thead>
             <tr>
-                <th class="info">Courses: </th>
                 {% for col_index in range(cols['campuses']|count) %}
                 <th class="warning">{{ cols['campuses'][col_index] }}</th>
                 {% endfor %}
@@ -48,8 +47,14 @@
 
         </tbody>
     </table>
+    <hr>
     <a href="/getCsv" class="btn btn-default btn-lg btn-success" role="button">Save as .csv</a>
 </div>
+<footer class="footer">
+    <div class="container" style="text-align: center">
+        <p class="text-muted">alexakovlev@gmail.com | 2015</p>
+    </div>
+</footer>
 
 </body>
 
