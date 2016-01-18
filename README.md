@@ -1,6 +1,7 @@
 # UCLive
 
-UClive is an academic planning tool that helps students find the college courses they need. It is written with the Flask framework and served by AWS EC2.
+UClive is an academic planning tool that helps students find the college courses they need. It is written with the Flask framework and served by AWS EC2 utilizing AWS Elastic Beanstalk.
+Check it out at http://www.uclive.elasticbeanstalk.com !
 
 ## Features
 * Easy-to-read report of course schedules for every school
