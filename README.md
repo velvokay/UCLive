@@ -8,7 +8,6 @@ Check it out at http://www.uclive.elasticbeanstalk.com !
 
 * Ability to save reports and course subsections as a *.csv extension
 
-* 
 ## To-do
 
 * Extend support for more schools and majors
