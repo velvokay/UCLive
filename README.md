@@ -18,8 +18,8 @@ Check it out at http://www.uclive.elasticbeanstalk.com !
 
 ## Screenshots
 
-![alt tag](http://www.ayakov.com/references/examplehome.png)
+![alt tag](http://www.ayakov.com/images/examplehome.png)
 
-![alt tag](http://www.ayakov.com/references/examplereports.png)
+![alt tag](http://www.ayakov.com/images/examplereports.png)
 
-![alt tag](http://www.ayakov.com/references/examplecsv.png)
+![alt tag](http://www.ayakov.com/images/examplecsv.png)
